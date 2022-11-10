@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    font-family: roboto;
+}
+
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+nav{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0; 
+    width: 100%;
+}
+
+.favoris{
+    filter: invert(100%);
+    width: 25px;
+}
+
+.panier{
+    filter: invert(100%);
+    width: 31px;
+}
+
+.logo{
+    width: 13px;
+}
+
+.navbar{
+    display: flex;
+    height: 48px;
+    padding-right: 10%;
+    justify-content: right;
+    align-items: center;
+    margin: 0;
+    gap: 40px;
+    list-style-type:none;
+}
+
+.flex{
+    display:flex;
+    margin-top: 100px;
+}
+
+p{
+    width:750px; 
+    line-height:100px; 
+    margin:auto; 
+    text-align:center; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+label{
+    font-size:36px; 
+    font-weight:bold;
+}
+
+input{
+    border-radius: 5px;
+    height:32px; 
+    line-height:50%; 
+    margin:0;
+    font-size:16px;
+}
+
+input[type=search]{
+    flex:1; 
+    margin-right:15px; 
+    padding:25px 0 25px 60px; 
+    background:url(img/recherche.png) 3% center no-repeat; 
+    background-size:3%;
+}
+
+input[type=submit]{
+    border-color: black;
+    padding:20px 25px 30px 25px; background:black; 
+    color:white; 
+    font-weight:bold;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.card1, .card2, .card3{
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.card img{
+    border-radius: 10px 10px 0 0;
+}
+
+
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 30px;
+}
+
+button{
+    border-radius: 5px;
+    border: solid black;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.favoris-btn{
+    border: none;
+}
+
+.favoris-card{
+    width: 25px;
+}
+
+
+
