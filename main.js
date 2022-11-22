@@ -53,7 +53,7 @@ for (let j = 1; j <= 5; j++) {
 
                             const cardSales = document.createElement('p')
                             cardSales.classList.add('card-sales')
-                            cardSales.innerHTML = data.assets[i].sales + " ventes";
+                            cardSales.innerHTML = " Nombre de ventes: " + data.assets[i].sales ;
 
                             const cardCollection = document.createElement('p')
                             cardCollection.classList.add('card-collection')

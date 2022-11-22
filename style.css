@@ -110,16 +110,11 @@ input[type=submit]{
     border-radius: 17px;
     padding: 5px 15px;
     text-align: center;
-    
-    transition: all 0.5s cubic-bezier(.61,-0.19,.48,1.22);
-    -webkit-transition: all 0.5s cubic-bezier(.61,-0.19,.48,1.22);
 }
 
 .toggle span.current{
     color: #454545;
     font-weight: 700;
-    transition: all 0.5s cubic-bezier(.61,-0.19,.48,1.22);
-    -webkit-transition: all 0.5s cubic-bezier(.61,-0.19,.48,1.22);
 }
 
 .toggleCurrent{
@@ -131,9 +126,6 @@ input[type=submit]{
     border-radius: 17px;
     border: 1px solid #E24506;
     cursor: pointer;
-    
-    transition: all 0.5s cubic-bezier(.61,-0.19,.48,1.22);
-    -webkit-transition: all 0.5s cubic-bezier(.61,-0.19,.48,1.22);
 }
 
 .toggleCurrent.slide{
@@ -153,7 +145,7 @@ input[type=submit]{
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    background: rgb(194, 194, 194);
+    background: #fff;
     border: 2px solid black;
     position: relative;
 }
@@ -191,19 +183,18 @@ input[type=submit]{
 }
 
 .card-detail {
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
     background: white;
     padding: 2px 10px;
-    text-transform: uppercase;
     white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     margin: 0px auto 8px auto;
-    font-size: 0.9rem;
-    font-weight: bold;
+    font-size: 0.915pxrem;
+    font-weight: 400;
     gap: 5px;
     transition: gap 0.15s ease-in-out;
 }
@@ -220,9 +211,17 @@ input[type=submit]{
     flex-direction: column;
 }
 
+.card-name{
+    text-align: center;
+    font-weight: 900;
+    line-height: 54px;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
 /* provisoire */
 .titre {
     display: flex;
     justify-content: center;
-    margin: 15px 0;
+    margin-top: 60px;
 }
