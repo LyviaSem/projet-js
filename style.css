@@ -18,7 +18,10 @@ nav{
     position: fixed;
     top: 0; 
     width: 100%;
+    z-index: 999;
 }
+
+
 
 .favoris{
     filter: invert(100%);
@@ -43,6 +46,11 @@ nav{
     margin: 0;
     gap: 40px;
     list-style-type:none;
+}
+
+.navbar a{
+    color: white;
+    font-size: 20px;
 }
 
 .flex{

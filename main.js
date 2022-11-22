@@ -34,7 +34,7 @@ for (let j = 1; j <= 5; j++) {
                                 
                                 const buttonPanier = document.createElement('button')
                                 buttonPanier.classList.add('card-panier')
-                                buttonPanier.innerHTML = "<i class='bx bx-shopping-bag'></i>"
+                                buttonPanier.innerHTML = "<i class='bx bx-cart'></i>"
                             
                         const cardInfos = document.createElement('div')
                         cardInfos.classList.add('card-infos')
