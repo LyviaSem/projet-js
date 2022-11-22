@@ -38,10 +38,6 @@ for (let j = 1; j <= 5; j++) {
                             
                         const cardInfos = document.createElement('div')
                         cardInfos.classList.add('card-infos')
-
-                            const buttonDetails = document.createElement('button')
-                            buttonDetails.classList.add('card-detail')
-                            buttonDetails.innerHTML = "Plus d'informations <i class='bx bx-plus'></i>"
                         
                             const cardName = document.createElement('p')
                             cardName.classList.add('card-name')
@@ -49,15 +45,19 @@ for (let j = 1; j <= 5; j++) {
                             
                             const cardCreator = document.createElement('p')
                             cardCreator.classList.add('card-creator')
-                            cardCreator.innerHTML = "Créateur: " + data.assets[i].creator.username;
+                            cardCreator.innerHTML = "<i class='bx bxs-user' style='color:#FF7F50'></i> Créateur: " + data.assets[i].creator.username;
 
                             const cardSales = document.createElement('p')
                             cardSales.classList.add('card-sales')
-                            cardSales.innerHTML = " Nombre de ventes: " + data.assets[i].sales ;
+                            cardSales.innerHTML = "<i class='bx bx-money-withdraw' style='color:#FF7F50'></i> Nombre de ventes: " + data.assets[i].sales ;
 
                             const cardCollection = document.createElement('p')
                             cardCollection.classList.add('card-collection')
-                            cardCollection.innerHTML = "Collection: " + data.assets[i].collection.name;
+                            cardCollection.innerHTML = "<i class='bx bxs-collection' style='color:#FF7F50'  ></i> Collection: " + data.assets[i].collection.name;
+
+                            const buttonDetails = document.createElement('button')
+                            buttonDetails.classList.add('card-detail')
+                            buttonDetails.innerHTML = "Plus d'informations <i class='bx bx-plus'></i>"
                             
                 
         
@@ -67,12 +67,12 @@ for (let j = 1; j <= 5; j++) {
                                     cardTop.append(cardButtons)
                                         cardButtons.append(buttonFav)
                                         cardButtons.append(buttonPanier)
-                                card.append(cardInfos)
-                                    cardInfos.append(buttonDetails)
                                     cardInfos.append(cardName)
                                     cardInfos.append(cardCreator)
                                     cardInfos.append(cardSales)
                                     cardInfos.append(cardCollection)
+                                    card.append(cardInfos)
+                                    cardInfos.append(buttonDetails)
 
                 }
             })

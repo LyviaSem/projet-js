@@ -124,7 +124,7 @@ input[type=submit]{
     width: 50%;
     height: 28px;
     border-radius: 17px;
-    border: 1px solid #E24506;
+    border: 1px solid #FF7F50;
     cursor: pointer;
 }
 
@@ -136,17 +136,19 @@ input[type=submit]{
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 25%);
+    gap: 40px;
     margin: 20px;
+    justify-content: center;
 }
+
 
 .card {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     background: #fff;
-    border: 2px solid black;
+    box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.5);
     position: relative;
 }
 
@@ -154,7 +156,7 @@ input[type=submit]{
     display: flex;
     border-radius: 20px 20px 0 0;
     width: 100%;
-    border-bottom: 2px solid black;
+    object-fit: cover;
 }
 
 .card-buttons {
@@ -177,14 +179,17 @@ input[type=submit]{
     transition: opacity 0.15s ease-in-out;
 }
 
+.card-creator, .card-sales, .card-collection{
+    font-size: 13px;
+    line-height: 23px;
+}
 
 .card-panier:hover, .card-fav:hover {
     opacity: 100%;
 }
 
 .card-detail {
-    border: 1px solid black;
-    border-radius: 5px;
+    border: none;
     background: white;
     padding: 2px 10px;
     white-space: nowrap;
@@ -192,7 +197,7 @@ input[type=submit]{
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin: 0px auto 8px auto;
+    margin: 14px auto 8px auto;
     font-size: 0.915pxrem;
     font-weight: 400;
     gap: 5px;
@@ -200,7 +205,9 @@ input[type=submit]{
 }
 
 .card-detail:hover {
-    gap: 15px;
+    color: coral;
+    border-bottom: 0.5px solid coral;
+    width: 25%;
 }
 
 
@@ -215,7 +222,7 @@ input[type=submit]{
     text-align: center;
     font-weight: 900;
     line-height: 54px;
-    font-size: 17px;
+    font-size: 15px;
     text-transform: uppercase;
 }
 
