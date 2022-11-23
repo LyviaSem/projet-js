@@ -1,0 +1,49 @@
+*{
+    margin: 0.1px;
+    font-family: roboto;
+}
+
+body{
+    background: linear-gradient(50deg,#a1e3e2, #f3c680);
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+nav{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    z-index: 999;
+}
+
+
+.logo{
+    width: 13px;
+}
+
+.navbar{
+    display: flex;
+    height: 48px;
+    padding-right: 10%;
+    padding-left: 10%;
+    align-items: center;
+    margin: 0;
+    list-style-type:none;
+    justify-content: space-between;
+}
+
+.lien-nav{
+    display: flex;
+    gap: 40px;
+}
+
+
+
+.navbar a{
+    color: white;
+    font-size: 20px;
+}

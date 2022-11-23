@@ -22,17 +22,6 @@ nav{
 }
 
 
-
-.favoris{
-    filter: invert(100%);
-    width: 25px;
-}
-
-.panier{
-    filter: invert(100%);
-    width: 31px;
-}
-
 .logo{
     width: 13px;
 }
@@ -41,11 +30,16 @@ nav{
     display: flex;
     height: 48px;
     padding-right: 10%;
-    justify-content: right;
+    padding-left: 10%;
     align-items: center;
     margin: 0;
-    gap: 40px;
     list-style-type:none;
+    justify-content: space-between;
+}
+
+.lien-nav{
+    display: flex;
+    gap: 40px;
 }
 
 .navbar a{
