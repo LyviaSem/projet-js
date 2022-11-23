@@ -50,3 +50,9 @@ setTimeout(function(){
     $(this).blur().dequeue();
   });
 }, 500);
+
+
+
+function paiement() {
+  alert('Votre paiement a été effectué avec succès !')
+}
