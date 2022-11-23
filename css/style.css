@@ -259,3 +259,7 @@ input[type=submit]{
     justify-content: center;
     margin-top: 60px;
 }
+
+.fav-color{
+    color: #FF7F50;
+}

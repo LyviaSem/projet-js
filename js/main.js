@@ -19,7 +19,25 @@ function createCard(NFT) {
             
                 const buttonFav = document.createElement('button')
                 buttonFav.classList.add('card-fav')
-                buttonFav.innerHTML = "<i class='bx bx-star'></i>"
+                //buttonFav.innerHTML = "<i class='bx bx-star'></i>"
+                let favicon = document.createElement('i')
+                favicon.classList.add('bx','bx-star')
+                if(hasFav(NFT.id)){
+                    favicon.classList.add('fav-color')
+                }
+                favicon.id = "favori" + NFT.id
+                buttonFav.appendChild(favicon)
+                buttonFav.addEventListener('click', () =>{
+                    document.getElementById("favori"+ NFT.id).classList.toggle('fav-color')
+                    /*recuperer la liste des id favori, verifier qu'ils sont dedant, ajouter et supprimer en fonction de la présence*/
+                    let favori = getFav()
+                    if(hasFav(NFT.id)){
+                        deleteFavorite(NFT.id)
+                    }
+                    else{
+                        setFav(NFT.id)
+                    }
+                })
                 
                 const buttonPanier = document.createElement('button')
                 buttonPanier.classList.add('card-panier')
@@ -179,3 +197,27 @@ buttonSearch.addEventListener('click', () => {
 
 
 afficherNftParPages();
+
+function getFav(){
+    return  JSON.parse(localStorage.getItem("favoris"))|| [] 
+ 
+ }
+  function setFav(id){
+     let favList = getFav()
+     favList.push(id)
+       localStorage.setItem("favoris", JSON.stringify(favList));
+  
+ }
+ 
+ 
+ function deleteFavorite ( id){
+     let favoriList = getFav()
+     favoriList = favoriList.filter ( FVid => FVid != id)
+    localStorage.setItem("favoris", JSON.stringify(favoriList));
+ }
+ function hasFav(id) {
+    
+     let favoriList = getFav()
+     return favoriList.includes(id)
+     
+ }
