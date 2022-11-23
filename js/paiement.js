@@ -51,7 +51,7 @@ $('.input-cart-number').on('keyup change', function(){
     });
   }, 500);
   
-  /*function getCreditCardType(accountNumber) {
+  function getCreditCardType(accountNumber) {
     if (/^5[1-5]/.test(accountNumber)) {
       result = 'mastercard';
     } else if (/^4/.test(accountNumber)) {
@@ -66,4 +66,4 @@ $('.input-cart-number').on('keyup change', function(){
   
   $('#card-number').change(function(){
     console.log(getCreditCardType($(this).val()));
-  })*/
+  })
