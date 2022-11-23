@@ -1,4 +1,7 @@
 let dataNFT = [];
+const inputSearch = document.getElementById('inputSearch')
+const buttonSearch = document.getElementById('buttonSearch')
+
 
 function createCard(NFT) {
     const card = document.createElement('div')
@@ -129,13 +132,20 @@ function toggleSide(e) {
 
 
 let selectFilter = document.getElementById('select-filter');
-selectFilter.addEventListener('change', function() {
+selectFilter.addEventListener('change', () => {
+    gestionFiltre(selectFilter.value)
+});
 
+async function gestionFiltre(val) {
     const allCards = document.getElementById('elements');
     allCards.innerHTML = "";
     let newDataNFT = [... dataNFT];
 
-    switch (this.value) {
+    switch (val) {
+        case 'search' :
+            console.log(inputSearch.value)
+            newDataNFT = await getDataBySearch(inputSearch.value);
+        break;
         case 'createurs':
             newDataNFT.sort((a, b) => a.creator.username.localeCompare(b.creator.username)); 
         break;
@@ -146,37 +156,26 @@ selectFilter.addEventListener('change', function() {
     for (let k = 0; k < newDataNFT.length; k++) {
         createCard(newDataNFT[k]);
     }
-});
+}
+
+async function getDataBySearch(valueInput) {
+    let dataList = [];
+    await fetch('https://awesome-nft-app.herokuapp.com/search?q=' + valueInput)
+        .then(response => {
+            return response.json()
+        }).then(async data => {
+            for (let i = 0; i < data.assets.length; i++) {
+                data.assets[i].creator.username = data.assets[i].creator.username || " inconnu";
+                dataList.push(data.assets[i]);
+            }
+        })
+    return dataList;
+}
 
 
-
-// let search = document.getElementById('search');
-// search.addEventListener('change', function() {
-
-//     const allCards = document.getElementById('elements');
-//     allCards.innerHTML = "";
-//     let newDataNFT = [... dataNFT];
-
-    
-//     async function afficherNftParRecherche(searched) {
-//         await fetch('https://awesome-nft-app.herokuapp.com/search?q=' + searched)
-//         .then(response => {
-//             if(response.ok) {
-//                 response.json().then(data => {
-//                     for (let i = 0; i < data.assets.length; i++) {
-//                         data.assets[i].creator.username = data.assets[i].creator.username || " inconnu";
-//                         newDataNFT.push(data.assets[i]);
-//                     }
-//                 })
-//             }
-//         })
-//     }
-
-//     for (let k = 0; k < dataNFT.length; k++) {
-//         createCard(dataNFT[k]);
-//     }
-// });
-
+buttonSearch.addEventListener('click', () => {
+    gestionFiltre('search')
+})
 
 
 afficherNftParPages();
