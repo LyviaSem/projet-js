@@ -26,7 +26,6 @@ form a{
 
 .wapper{
     margin: 100px auto;
-    width: 1000px;
 }
 
 form li{
@@ -59,18 +58,17 @@ form li:hover .sous-menu{
     margin-top: 1rem;
 }
 
-.card{
+.card-search{
     border: 1px solid black;
     background-color: white;
     padding: .5rem;
-    z-index: 900;
 }
 
-.card > header{
+.card-search > header{
     margin-bottom: .25rem;
 }
 
-.card > body{
+.card-search > body{
     font-size: .8rem;
     color: #777;
 }

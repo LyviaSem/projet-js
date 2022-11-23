@@ -55,5 +55,4 @@ setTimeout(function(){
 
 function paiement() {
   alert('Votre paiement a été effectué avec succès !')
-  // redirection
 }
