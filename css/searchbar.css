@@ -1,0 +1,80 @@
+/*a, ul, li, form, nav{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}*/
+
+form nav{
+    display: block;
+}
+
+form ul{
+    list-style: none;
+}
+
+/*{
+    box-sizing: border-box;
+}*/
+
+form a{
+    text-decoration: none;
+    color: #333;
+}
+
+.wapper{
+    margin: 100px auto;
+    width: 1000px;
+}
+
+form li{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+
+form li:hover .sous-menu{
+    display: block;
+}
+
+.sous-menu{
+    display: none;
+    position: absolute;
+
+}
+
+.sous-menu li{
+    display: block;
+}
+
+
+
+.nft-card{
+    display:grid;
+    grid-template-columns: repeat(auti-fill, minmax(150px, 1fr));
+    gap: .25rem;
+    margin-top: 1rem;
+}
+
+.card{
+    border: 1px solid black;
+    background-color: white;
+    padding: .5rem;
+    z-index: 900;
+}
+
+.card > header{
+    margin-bottom: .25rem;
+}
+
+.card > body{
+    font-size: .8rem;
+    color: #777;
+}
+
+.hide{
+    display: none;
+}

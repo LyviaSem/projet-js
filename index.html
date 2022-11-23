@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/searchbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;1,500&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Home</title>
 </head>
 <body>
-    <nav>
+    <nav class="nav-menu">
         <ul class="navbar">
             <span class="home">
                 <li>
@@ -29,12 +30,28 @@
         </ul>
     </nav>
 
-    <form action="#" method="post">
-        <p class="flex">
-            <input type="search" name="search" id="search" placeholder="Recherchez votre produit...">
-            <input type="submit" value="Recherche">
-        </p>
-    </form>
+    <form method="post" form> 
+        <nav class="wapper">
+            <ul>
+                <li class="menu-deroulant"> <input type="search" name="search" id="search" placeholder="Recherchez votre produit..." data-search> 
+                    <br>
+                    <span error></span>
+                    <ul class="sous-menu">
+                    <div class="nft-card" data-nft-cards-container> </div> 
+                    </ul>
+                </li>
+                <li><input type="submit" value="Recherche"></li>
+            </ul>
+    
+        <nav>
+   </form>
+
+   <template data-nft-card-template>
+    <a href="index.html" > <div class = "card">
+        <div class = "header" data-header></div>
+        <div class = "body" data-body></div>
+    </div> </a>
+    </template>
 
     <div class="filterBy">
         <label>Filtrer par :</label>
@@ -59,6 +76,7 @@
     <!-- création des cards ICI (dans le script) -->
     <div id="elements" class="cards"></div>
     <script src="js/main.js"></script>
+    <script src="js/searchbar.js"></script>
 
 </body>
 </html>
