@@ -4,6 +4,8 @@
 }
 
 body{
+    /* margin top en attendant de faire la barre de recherche, à retirer apres */
+    margin-top: 100px;
     background: linear-gradient(50deg,#a1e3e2, #f3c680);
 }
 

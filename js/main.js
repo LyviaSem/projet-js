@@ -123,6 +123,11 @@ function toggleSide(e) {
     }
 }
 
+
+
+
+
+
 let selectFilter = document.getElementById('select-filter');
 selectFilter.addEventListener('change', function() {
 
@@ -142,6 +147,35 @@ selectFilter.addEventListener('change', function() {
         createCard(newDataNFT[k]);
     }
 });
+
+
+
+// let search = document.getElementById('search');
+// search.addEventListener('change', function() {
+
+//     const allCards = document.getElementById('elements');
+//     allCards.innerHTML = "";
+//     let newDataNFT = [... dataNFT];
+
+    
+//     async function afficherNftParRecherche(searched) {
+//         await fetch('https://awesome-nft-app.herokuapp.com/search?q=' + searched)
+//         .then(response => {
+//             if(response.ok) {
+//                 response.json().then(data => {
+//                     for (let i = 0; i < data.assets.length; i++) {
+//                         data.assets[i].creator.username = data.assets[i].creator.username || " inconnu";
+//                         newDataNFT.push(data.assets[i]);
+//                     }
+//                 })
+//             }
+//         })
+//     }
+
+//     for (let k = 0; k < dataNFT.length; k++) {
+//         createCard(dataNFT[k]);
+//     }
+// });
 
 
 
