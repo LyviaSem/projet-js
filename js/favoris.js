@@ -1,6 +1,4 @@
 let dataNFT = [];
-const inputSearch = document.getElementById('inputSearch')
-const buttonSearch = document.getElementById('buttonSearch')
 
 
 function createCard(NFT) {
@@ -19,6 +17,7 @@ function createCard(NFT) {
             
                 const buttonFav = document.createElement('button')
                 buttonFav.classList.add('card-fav')
+                //buttonFav.innerHTML = "<i class='bx bx-star'></i>"
                 let favicon = document.createElement('i')
                 favicon.classList.add('bx','bx-star')
                 if(hasFav(NFT.id)){
@@ -27,6 +26,7 @@ function createCard(NFT) {
                 favicon.id = "favori" + NFT.id
                 buttonFav.appendChild(favicon)
                 buttonFav.addEventListener('click', () =>{
+                    console.log(localStorage.favoris)
                     document.getElementById("favori"+ NFT.id).classList.toggle('fav-color')
                     /*recuperer la liste des id favori, verifier qu'ils sont dedant, ajouter et supprimer en fonction de la présence*/
                     let favori = getFav()
@@ -36,11 +36,11 @@ function createCard(NFT) {
                     else{
                         setFav(NFT.id)
                     }
-                    console.log(localStorage)
                 })
                 
                 const buttonPanier = document.createElement('button')
                 buttonPanier.classList.add('card-panier')
+                //buttonPanier.innerHTML = "<i class='bx bx-cart'></i>"
                 let paniericon = document.createElement('i')
                 paniericon.classList.add('bx', 'bx-cart')
                 if(hasPanier(NFT.id)){
@@ -130,7 +130,9 @@ async function afficherNftParPages() {
                 response.json().then(data => {
                     for (let i = 0; i < data.assets.length; i++) {
                         data.assets[i].creator.username = data.assets[i].creator.username || " inconnu";
-                        dataNFT.push(data.assets[i]);
+                        
+                        if(hasFav(data.assets[i].id))
+                            dataNFT.push(data.assets[i]);
                     }
                 })
             } else {
@@ -161,61 +163,6 @@ function toggleSide(e) {
     }
 }
 
-
-
-
-
-
-let selectFilter = document.getElementById('select-filter');
-selectFilter.addEventListener('change', () => {
-    gestionFiltre(selectFilter.value)
-});
-
-async function gestionFiltre(val) {
-    const allCards = document.getElementById('elements');
-    allCards.innerHTML = "";
-    let newDataNFT = [... dataNFT];
-
-    switch (val) {
-        case 'search' :
-            console.log(inputSearch.value)
-            newDataNFT = await getDataBySearch(inputSearch.value);
-        break;
-        case 'createurs':
-            newDataNFT.sort((a, b) => a.creator.username.localeCompare(b.creator.username)); 
-        break;
-        case 'ventes':
-            newDataNFT.sort((a, b) => b.sales - a.sales);
-        break;
-    }
-    for (let k = 0; k < newDataNFT.length; k++) {
-        createCard(newDataNFT[k]);
-    }
-}
-
-async function getDataBySearch(valueInput) {
-    let dataList = [];
-    await fetch('https://awesome-nft-app.herokuapp.com/search?q=' + valueInput)
-        .then(response => {
-            return response.json()
-        }).then(async data => {
-            for (let i = 0; i < data.assets.length; i++) {
-                data.assets[i].creator.username = data.assets[i].creator.username || " inconnu";
-                dataList.push(data.assets[i]);
-            }
-        })
-    return dataList;
-}
-
-
-buttonSearch.addEventListener('click', () => {
-    gestionFiltre('search')
-})
-
-
-afficherNftParPages();
-
-
 /*--------fonction favori-------*/
 function getFav(){
     return  JSON.parse(localStorage.getItem("favoris"))|| [] 
@@ -237,7 +184,6 @@ function hasFav(id) {
     let favoriList = getFav()
     return favoriList.includes(id) 
 }
-
 
 
  /*--------fonction panier-------*/
@@ -262,3 +208,6 @@ function hasFav(id) {
      let panList = getPanier()
      return panList.includes(id)
  }
+
+
+afficherNftParPages();
