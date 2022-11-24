@@ -28,6 +28,7 @@ function createCard(NFT) {
                 favicon.id = "favori" + NFT.id
                 buttonFav.appendChild(favicon)
                 buttonFav.addEventListener('click', () =>{
+                    console.log(localStorage.favoris)
                     document.getElementById("favori"+ NFT.id).classList.toggle('fav-color')
                     /*recuperer la liste des id favori, verifier qu'ils sont dedant, ajouter et supprimer en fonction de la présence*/
                     let favori = getFav()
@@ -41,7 +42,25 @@ function createCard(NFT) {
                 
                 const buttonPanier = document.createElement('button')
                 buttonPanier.classList.add('card-panier')
-                buttonPanier.innerHTML = "<i class='bx bx-cart'></i>"
+                //buttonPanier.innerHTML = "<i class='bx bx-cart'></i>"
+                let paniericon = document.createElement('i')
+                paniericon.classList.add('bx', 'bx-cart')
+                if(hasPanier(NFT.id)){
+                    paniericon.classList.add('fav-color')
+                }
+                paniericon.id = "panier" + NFT.id
+                buttonPanier.appendChild(paniericon)
+                buttonPanier.addEventListener('click', () =>{
+                    document.getElementById("panier"+ NFT.id).classList.toggle('fav-color')
+                    /*recuperer la liste des id favori, verifier qu'ils sont dedant, ajouter et supprimer en fonction de la présence*/
+                    let panier = getPanier()
+                    if(hasPanier(NFT.id)){
+                        deletePanier(NFT.id)
+                    }
+                    else{
+                        setPanier(NFT.id)
+                    }
+                })
             
         const cardInfos = document.createElement('div')
         cardInfos.classList.add('card-infos')
@@ -198,26 +217,47 @@ buttonSearch.addEventListener('click', () => {
 
 afficherNftParPages();
 
+/*--------fonction favori-------*/
 function getFav(){
     return  JSON.parse(localStorage.getItem("favoris"))|| [] 
- 
  }
+
   function setFav(id){
      let favList = getFav()
      favList.push(id)
        localStorage.setItem("favoris", JSON.stringify(favList));
-  
  }
  
- 
- function deleteFavorite ( id){
+ function deleteFavorite(id){
      let favoriList = getFav()
      favoriList = favoriList.filter ( FVid => FVid != id)
     localStorage.setItem("favoris", JSON.stringify(favoriList));
  }
+
  function hasFav(id) {
-    
      let favoriList = getFav()
-     return favoriList.includes(id)
-     
+     return favoriList.includes(id) 
+ }
+
+ /*--------fonction panier-------*/
+ function getPanier(){
+    return  JSON.parse(localStorage.getItem("paniers"))|| [] 
+ }
+
+  function setPanier(id){
+     let panierList = getPanier()
+     panierList.push(id)
+       localStorage.setItem("paniers", JSON.stringify(panierList));
+ }
+ 
+ 
+ function deletePanier(id){
+     let panList = getPanier()
+     panList = panList.filter ( PNid => PNid != id)
+    localStorage.setItem("paniers", JSON.stringify(panList));
+ }
+
+ function hasPanier(id) {
+     let panList = getPanier()
+     return panList.includes(id)
  }
