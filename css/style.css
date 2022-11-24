@@ -265,3 +265,7 @@ button[type=submit]{
 .fav-color{
     color: #FF7F50;
 }
+
+h1{
+    text-align: center;
+}
