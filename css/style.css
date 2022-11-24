@@ -7,6 +7,7 @@ body{
     /* margin top en attendant de faire la barre de recherche, à retirer apres */
     margin-top: 100px;
     background: linear-gradient(50deg,#a1e3e2, #f3c680);
+    min-height: 100vh;
 }
 
 
@@ -60,32 +61,33 @@ img{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-label{
+/*label{
     font-size:36px; 
     font-weight:bold;
-}
+}*/
 
 input{
     border-radius: 5px;
-    height:32px; 
-    line-height:50%; 
+    height:0; 
+    /*line-height:50%; */
     margin:0;
     font-size:16px;
 }
 
-input[type=search]{
+input[type=text]{
     flex:1; 
     margin-right:15px; 
     padding: 25px 20px; 
     background-size: 3%;
 }
 
-input[type=submit]{
+button[type=submit]{
     border-color: black;
-    padding:20px 25px 30px 25px; 
+    padding:0px 25px; 
     background:black; 
     color:white; 
     font-weight:bold;
+    border-radius: 5px;
 }
 
 .filterBy {
