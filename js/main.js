@@ -217,27 +217,30 @@ buttonSearch.addEventListener('click', () => {
 
 afficherNftParPages();
 
+
 /*--------fonction favori-------*/
 function getFav(){
     return  JSON.parse(localStorage.getItem("favoris"))|| [] 
- }
+}
 
-  function setFav(id){
-     let favList = getFav()
-     favList.push(id)
-       localStorage.setItem("favoris", JSON.stringify(favList));
- }
- 
- function deleteFavorite(id){
-     let favoriList = getFav()
-     favoriList = favoriList.filter ( FVid => FVid != id)
+function setFav(id){
+    let favList = getFav()
+    favList.push(id)
+    localStorage.setItem("favoris", JSON.stringify(favList));
+}
+
+function deleteFavorite(id){
+    let favoriList = getFav()
+    favoriList = favoriList.filter ( FVid => FVid != id)
     localStorage.setItem("favoris", JSON.stringify(favoriList));
- }
+}
 
- function hasFav(id) {
-     let favoriList = getFav()
-     return favoriList.includes(id) 
- }
+function hasFav(id) {
+    let favoriList = getFav()
+    return favoriList.includes(id) 
+}
+
+
 
  /*--------fonction panier-------*/
  function getPanier(){
